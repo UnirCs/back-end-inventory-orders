@@ -1,6 +1,6 @@
 package com.unir.orders.facade;
 
-import com.unir.orders.model.Product;
+import com.unir.orders.facade.model.Product;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

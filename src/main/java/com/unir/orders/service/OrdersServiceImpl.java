@@ -1,7 +1,7 @@
 package com.unir.orders.service;
 
 import com.unir.orders.data.OrderJpaRepository;
-import com.unir.orders.model.db.Order;
+import com.unir.orders.data.model.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,8 +10,8 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 import com.unir.orders.facade.ProductsFacade;
-import com.unir.orders.model.Product;
-import com.unir.orders.model.request.OrderRequest;
+import com.unir.orders.facade.model.Product;
+import com.unir.orders.controller.model.OrderRequest;
 
 @Service
 public class OrdersServiceImpl implements OrdersService {

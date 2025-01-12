@@ -1,4 +1,4 @@
-package com.unir.orders.model.request;
+package com.unir.orders.controller.model;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;

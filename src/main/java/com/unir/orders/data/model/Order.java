@@ -1,4 +1,4 @@
-package com.unir.orders.model.db;
+package com.unir.orders.data.model;
 
 import jakarta.persistence.*;
 import lombok.*;
