@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.reactive.function.client.WebClient;
 
 @Component
 @RequiredArgsConstructor
@@ -17,14 +18,19 @@ public class ProductsFacade {
   @Value("${getProduct.url}")
   private String getProductUrl;
 
-  private final RestTemplate restTemplate;
+  private final WebClient.Builder webClient;
 
   public Product getProduct(String id) {
 
     try {
       String url = String.format(getProductUrl, id);
       log.info("Getting product with ID {}. Request to {}", id, url);
-      return restTemplate.getForObject(url, Product.class);
+      return webClient.build()
+              .get()
+              .uri(url)
+              .retrieve()
+              .bodyToMono(Product.class)
+              .block();
     } catch (HttpClientErrorException e) {
       log.error("Client Error: {}, Product with ID {}", e.getStatusCode(), id);
       return null;
